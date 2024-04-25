@@ -23,7 +23,7 @@ import { colaborador } from './entity/colaborado.entity';
       rootPath: join(__dirname, '..','src', 'public'), // Ruta a tu carpeta 'public'
       serveRoot: '/public', // Ruta base para servir los archivos estáticos
     }),
-    TypeOrmModule.forRoot({
+    /*TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
       port: 5432,
@@ -34,13 +34,14 @@ import { colaborador } from './entity/colaborado.entity';
       synchronize: true,
       logging: true,
     }),
-    // TypeOrmModule.forRoot({ //para desplegar, descomentar esto y comentar lo de arriba
-    //   type: 'postgres',
-    //   url: process.env.DATABASE_URL, // URL de conexión proporcionada por Railway
-    //   entities: [usuario, reunion, diagrama, colaborador],
-    //   synchronize: true, 
-    //   logging: true,
-    // }),
+    */
+     TypeOrmModule.forRoot({ //para desplegar, descomentar esto y comentar lo de arriba
+      type: 'postgres',
+       url: process.env.DATABASE_URL, // URL de conexión proporcionada por Railway
+       entities: [usuario, reunion, diagrama, colaborador],
+       synchronize: true, 
+       logging: true,
+     }),
     TypeOrmModule.forFeature([usuario, reunion, diagrama,colaborador]), // Asegúrate de incluir tu entidad aquí
     UserModule,
     ReunionModule,
