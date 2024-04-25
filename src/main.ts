@@ -10,7 +10,7 @@ async function bootstrap() {
   const cors = require('cors');
 
   app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'http://meetflowback-production.up.railway.app',
     credentials: true,
   }));
   await app.listen(3001); //Puerto del Backend
